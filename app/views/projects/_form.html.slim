@@ -1,4 +1,4 @@
-= simple_form_for @project, :wrapper => 'inline' do |f|
+= simple_form_for @project, :html => { :multipart => true }, :wrapper => 'inline' do |f|
   = f.input :name, :hint => 'The title of your project'
 
   ul.tabs
@@ -17,6 +17,8 @@
         = render 'task_fields', :f => task
       .links
         = link_to_add_association 'add task', f, :tasks, :render_options => { :wrapper => 'inline' }
+        = link_to_add_association 'add video', f, :tasks, :render_options => { :wrapper => 'inline' }, :wrap_object => Proc.new { |task| task = Video.new; task }
+        = link_to_add_association 'add image', f, :tasks, :render_options => { :wrapper => 'inline' }, :wrap_object => Proc.new { |task| task.type = 'Image'; task }
 
     #people
       = f.simple_fields_for :people, :wrapper => 'inline' do |person|

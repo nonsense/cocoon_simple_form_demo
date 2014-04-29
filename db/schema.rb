@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111014204318) do
+ActiveRecord::Schema.define(:version => 20140429090545) do
 
   create_table "people", :force => true do |t|
     t.string   "name"
@@ -59,6 +59,15 @@ ActiveRecord::Schema.define(:version => 20111014204318) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "done"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.string   "video_file_name"
+    t.string   "video_content_type"
+    t.integer  "video_file_size"
+    t.datetime "video_updated_at"
+    t.string   "type"
   end
 
 end
